@@ -22,14 +22,15 @@ GEOSWithin
 GEOSEquals
 
 GEOSConvexHull
-GEOSDelaunayTriangulation
+GEOSDelaunayMesh
 GEOSVoronoiMesh
 
 GEOSUnion
-GEOSUnaryUnion
 GEOSIntersection
 GEOSDifference
 GEOSSymmetricDifference
+
+GEOSMerge
 
 GEOSBoundary
 GEOSBuffer
@@ -109,16 +110,16 @@ DeclareFunction[GEOSConvexHull, iGEOSConvexHull, 1];
 iGEOSConvexHull[geom_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSConvexHull[geom["Raw"]]]
 
 
-Options[GEOSDelaunayTriangulation] = {
+Options[GEOSDelaunayMesh] = {
 	"OnlyEdges" -> False,
 	Tolerance -> 0
 };
-DeclareFunction[GEOSDelaunayTriangulation, iGEOSDelaunayTriangulation, 1];
-iGEOSDelaunayTriangulation[geom_GEOSGeometry, opts_] :=
+DeclareFunction[GEOSDelaunayMesh, iGEOSDelaunayMesh, 1];
+iGEOSDelaunayMesh[geom_GEOSGeometry, opts_] :=
 	GEOSGeometry@GL`GEOSDelaunayTriangulation[
 		geom["Raw"],
-		OptionValue[GEOSDelaunayTriangulation,opts,Tolerance],
-		OptionValue[GEOSDelaunayTriangulation,opts,"OnlyEdges"]
+		OptionValue[GEOSDelaunayMesh,opts,Tolerance],
+		OptionValue[GEOSDelaunayMesh,opts,"OnlyEdges"]
 	]
 
 
@@ -161,11 +162,18 @@ DeclareFunction[GEOSSymmetricDifference, iGEOSSymmetricDifference, 2];
 iGEOSSymmetricDifference[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSSymmetricDifference[geom1["Raw"], geom2["Raw"]]]
 
 
+DeclareFunction[GEOSMerge, iGEOSMerge, 1];
+iGEOSMerge[geoms:{___GEOSGeometry}, opts_] := GEOSGeometry[GL`GEOSMerge[#["Raw"]&/@geoms]]
+
+
 DeclareFunction[GEOSBoundary, iGEOSBoundary, 1];
 iGEOSBoundary[geom_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSBoundary[geom["Raw"]]]
 
-DeclareFunction[GEOSBuffer, iGEOSBuffer, {2,3}];
-iGEOSBuffer[geom_GEOSGeometry, rad_?NumberQ, segs_Integer:5, opts_] := GEOSGeometry[GL`GEOSBuffer[geom["Raw"], rad, segs]]
+Options[GEOSBuffer] = {
+	"Segments" -> 5
+};
+DeclareFunction[GEOSBuffer, iGEOSBuffer, 2];
+iGEOSBuffer[geom_GEOSGeometry, rad_?NumberQ, opts_] := GEOSGeometry[GL`GEOSBuffer[geom["Raw"], rad, OptionValue[GEOSBuffer, opts, "Segments"]]]
 
 
 End[];

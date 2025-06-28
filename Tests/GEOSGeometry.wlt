@@ -130,23 +130,23 @@ TestCreate[
 ]
 
 TestCreate[
-  MatchQ[GEOSDelaunayTriangulation[geom1], _GEOSGeometry]
+  MatchQ[GEOSDelaunayMesh[geom1], _GEOSGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSDelaunayTriangulation[geom1, "OnlyEdges"->False], _GEOSGeometry]
+  MatchQ[GEOSDelaunayMesh[geom1, "OnlyEdges"->False], _GEOSGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSDelaunayTriangulation[geom1, "OnlyEdges"->True], _GEOSGeometry]
+  MatchQ[GEOSDelaunayMesh[geom1, "OnlyEdges"->True], _GEOSGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSDelaunayTriangulation[geom1, "OnlyEdges"->False, Tolerance->0.0001], _GEOSGeometry]
+  MatchQ[GEOSDelaunayMesh[geom1, "OnlyEdges"->False, Tolerance->0.0001], _GEOSGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSDelaunayTriangulation[geom1, "OnlyEdges"->True, Tolerance->0.0001], _GEOSGeometry]
+  MatchQ[GEOSDelaunayMesh[geom1, "OnlyEdges"->True, Tolerance->0.0001], _GEOSGeometry]
 ]
 
 TestCreate[
@@ -214,6 +214,18 @@ TestCreate[
 ]
 
 TestCreate[
+  MatchQ[GEOSMerge[{geom1,geom2}], _GEOSGeometry]
+]
+
+TestCreate[
+  MatchQ[GEOSMerge[{geom1}], _GEOSGeometry]
+]
+
+TestCreate[
+  MatchQ[GEOSMerge[{}], _GEOSGeometry]
+]
+
+TestCreate[
   regionGEOSSameQ[GEOSBoundary[geom1], RegionBoundary[poly1]]
 ]
 
@@ -226,7 +238,7 @@ TestCreate[
 ]
 
 TestCreate[
-  MatchQ[GEOSBuffer[geom1, 1, 3], _GEOSGeometry]
+  MatchQ[GEOSBuffer[geom1, 1, "Segments"->3], _GEOSGeometry]
 ]
 
 TestCreate[

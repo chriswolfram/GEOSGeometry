@@ -1,0 +1,548 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     20993,        540]
+NotebookOptionsPosition[     16319,        441]
+NotebookOutlinePosition[     16855,        459]
+CellTagsIndexPosition[     16812,        456]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["GEOSGeometry", "GuideTitle",
+ CellID->521493613,ExpressionUUID->"47169c9b-c5ff-4f28-b52d-d25d8c6c45c1"],
+
+Cell["\<\
+GEOSGeometry provides functions for fast geometric operation.\
+\>", "GuideAbstract",
+ CellChangeTimes->{{3.960075707206786*^9, 3.9600757268707733`*^9}},
+ CellID->862390284,ExpressionUUID->"2bd9f54e-a44d-490d-93a3-bab13ec5e161"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->826369585,ExpressionUUID->"8f61c4ac-b2b0-4ca1-9588-42af2dfe9810"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSGeometry",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSGeometry"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "00d7d5c3-113e-4668-8733-9c25548e7f01"],
+ " \[LongDash] represent geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.9600757365624332`*^9, 3.960075746679894*^9}},
+ CellID->1694004930,ExpressionUUID->"e6c354d7-e214-416c-aace-7fd5e83c975b"],
+
+Cell[CellGroupData[{
+
+Cell["\t", "GuideDelimiter",
+ CellID->1129793073,ExpressionUUID->"82bd6bb2-f6d1-4153-ae68-4ba49a6443c4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSArea",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSArea"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "06491f90-2381-45e5-b4d9-379774429985"],
+ " \[LongDash] compute area of geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.960075886168415*^9, 3.960075896436411*^9}},
+ CellID->693365513,ExpressionUUID->"b29ff185-c841-44fb-93d9-3a75f9d922b1"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSLength",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSLength"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "f8c3e183-411b-4681-86d0-4a5e5df9d54c"],
+ " \[LongDash] compute length of geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.9600758989137897`*^9, 3.960075906080175*^9}},
+ CellID->1760974863,ExpressionUUID->"81f53c81-c574-4b1d-a083-d8c79e72f38c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\t", "GuideDelimiter",
+ CellID->570971504,ExpressionUUID->"d311f75c-64d7-4c5e-bcca-cb26c3b5f8b4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSHausdorffDistance",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSHausdorffDistance"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "8e84e3e2-eb6f-4554-99ce-f95a08d1a15f"],
+ " \[LongDash] compute the Hausdorff distance between geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.9600760249820423`*^9, 3.96007604540679*^9}, {
+  3.9600761709404087`*^9, 3.960076171450726*^9}},
+ CellID->1825673217,ExpressionUUID->"d88a250e-bfff-4017-8c83-6fce460b6079"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSDistance",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSDistance"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "e41a0f58-3b6f-431b-b5bc-9ca8d8e75003"],
+ " \[LongDash] compute the distance between geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.960076002435544*^9, 3.9600760132357073`*^9}},
+ CellID->1498893450,ExpressionUUID->"bc8114c5-dbef-4fc4-9423-b6c1b5b4a33a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSDistanceWithin",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSDistanceWithin"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "c6bee040-649e-4c87-bdf1-17622ffa55da"],
+ " \[LongDash] check whether two regions are within a radius of each other"
+}], "GuideText",
+ CellChangeTimes->{{3.960075849558201*^9, 3.9600758773121758`*^9}},
+ CellID->1231474160,ExpressionUUID->"1e0365a3-175e-40e8-87f4-894686dfe2b7"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSDisjoint",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSDisjoint"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "bb1b30aa-ac91-4788-be1f-179e2d84da9c"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSCovers",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSCovers"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"4f3db3c2-01e3-4413-b001-df98622bc0f2",ExpressionUUID->
+  "ee00e544-ea35-48ea-8604-d43805ccb13e"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSOverlaps",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSOverlaps"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"0e145718-753d-49be-b7bd-651fbfd255cb",ExpressionUUID->
+  "2dad5390-eb25-46ae-8826-6a39258a8874"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSContains",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSContains"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"dbce8f49-f6dd-49d0-90ef-ea8c7d8aef39",ExpressionUUID->
+  "f0d36489-d75c-4917-9b9e-625fa428ad45"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSTouches",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSTouches"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"0447fd2d-62ca-4fab-ba3d-d3e123d818ad",ExpressionUUID->
+  "b11bf5be-0c12-4157-bcfc-6e270da1e99c"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSIntersects",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSIntersects"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c7c235cb-b7ea-41d3-983c-676a125792ce",ExpressionUUID->
+  "5e18c30f-cb43-44f3-ba77-77f2d5a73017"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSWithin",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSWithin"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"7ce73bde-be05-415a-b3b1-574e053f7054",ExpressionUUID->
+  "b62a9a9a-c2e7-4194-a3f8-178ca90d4809"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSEquals",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSEquals"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"ab47b00d-27d4-475d-a29c-62fbe316a96f",ExpressionUUID->
+  "b6486cce-9a8e-470a-9317-278dd836d57b"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "0d632b77-2f4f-48b7-bf86-e2cfc533b310"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "6e7b3b77-31dd-4887-9a73-c00b92b37826", 
+     "6a2a5ff5-59be-4879-a8dd-f7eb3647a3e0"], $CellContext`cellobj$$ = 
+    CellObject[
+    "5e83a1ab-057c-4f47-9f0a-012170cc262d", 
+     "cfe92007-2b4c-40e6-b7b2-87b84e9b0ba1"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "5e83a1ab-057c-4f47-9f0a-012170cc262d"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.960076052741543*^9, 3.960076102923634*^9}},
+ CellID->2058181741,ExpressionUUID->"86a8a4cd-8169-425d-a7ca-8b23b04c4649"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\t", "GuideDelimiter",
+ CellID->479110374,ExpressionUUID->"88d12592-321a-4878-86f7-63920d69d7a3"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSBoundary",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSBoundary"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "1b6b0975-c5c2-48df-90c9-9b0850ff517b"],
+ " \[LongDash] get boundary of geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.960076164355277*^9, 3.96007617336135*^9}},
+ CellID->395134225,ExpressionUUID->"bb7e43f8-a23e-47c4-a3a0-25473198a0ff"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSBuffer",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSBuffer"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"459da53c-d2c3-4fc9-a544-8015946eab3c",ExpressionUUID->
+  "3ec60ef2-16ef-44ea-8c47-1c764e627df0"],
+ " \[LongDash] buffer geometry"
+}], "GuideText",
+ CellChangeTimes->{{3.960076179828827*^9, 3.960076184252221*^9}},
+ CellID->407857057,ExpressionUUID->"dbb02faa-771a-4553-a226-cd13f3139152"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GEOSMerge",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSMerge"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "21e0c1d9-8051-46a1-a66b-0e7f65443743"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSUnion",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSUnion"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"b3240dd6-2503-424d-ad89-c7ef3c992dfe",ExpressionUUID->
+  "0fd83201-6bdf-494b-bad4-cc7c65b2ada8"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSIntersection",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSIntersection"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"de8d8d69-b9d3-403c-9350-8c24120ac4b5",ExpressionUUID->
+  "77caf7e3-cfc4-4fef-adc9-0cf39dab8716"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSDifference",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSDifference"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"fceea3a2-268b-41e6-ac18-c8d59f82624c",ExpressionUUID->
+  "c6b4611d-a2ff-4bc7-a212-ae47afef1120"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GEOSSymmetricDifference",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ChristopherWolfram/GEOSGeometry/ref/GEOSSymmetricDifference"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"0780393d-35ab-4dcf-83b7-729438326bba",ExpressionUUID->
+  "6f30b130-11a2-40ac-b2d4-2b5abcc0a94d"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "df7c107c-7d85-4cf4-9656-a219b1c39799"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "6e7b3b77-31dd-4887-9a73-c00b92b37826", 
+     "6a2a5ff5-59be-4879-a8dd-f7eb3647a3e0"], $CellContext`cellobj$$ = 
+    CellObject[
+    "03527681-35d9-4625-8603-7295972609da", 
+     "4f90184d-b165-4dae-abe1-b4c63390e6e9"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "03527681-35d9-4625-8603-7295972609da"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.960076121725944*^9, 3.960076150616075*^9}},
+ CellID->1625505309,ExpressionUUID->"0df1086a-0e19-4b03-9673-e1317a4e3fca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->1893845970,ExpressionUUID->"93a67dd9-7ba2-4f65-b8bf-6fddcba8c10e"],
+
+Cell["XXXX", "GuideTutorial",
+ CellID->2014085603,ExpressionUUID->"287afeca-cbab-42f6-8e8b-0a51f7bcf46b"],
+
+Cell["XXXX", "GuideTutorial",
+ CellID->2099485607,ExpressionUUID->"a86f834c-2945-4889-be11-0332d02ed749"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->750792992,ExpressionUUID->"e76fb065-4622-4c8f-b5fa-70204a988959"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->2111390419,ExpressionUUID->"ad9fa4c1-a440-45eb-aba6-752ecf4a01a0"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->1118989105,ExpressionUUID->"6b00e376-0dec-464d-9233-c7f48f073cf6"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->1335590956,ExpressionUUID->"54cc4d77-e7b6-47e7-9782-f38ddecdfde5"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->1778119048,ExpressionUUID->"71da0ea5-3a14-4ddf-bf44-76a2f6270838"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"4c05cc17-ba53-4243-a121-c6ac7f35a306"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"8dd1ecf3-a0e4-47e7-a6e7-ff67f15ae0b6"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "dfa8c748-4ade-4736-bf9d-b28799a895bf"]
+}], "History",
+ CellID->464408084,ExpressionUUID->"40852819-f454-4fc8-a6c4-04940fec0332"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1351094590,ExpressionUUID->"bf09cf20-378f-4af0-a958-2f76719d6fb4"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->354690752,ExpressionUUID->"1f27f359-7461-4026-b171-8ad515af04e1"],
+
+Cell["ChristopherWolfram/GEOSGeometry", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->2020348439,ExpressionUUID->"64960a8e-9f3b-4c3e-97a1-630371f78aa4"],
+
+Cell["ChristopherWolfram`GEOSGeometry`", "Categorization",
+ CellLabel->"Context",
+ CellID->2132271556,ExpressionUUID->"01c973ee-9e11-41fe-9f86-0811eb79438a"],
+
+Cell["ChristopherWolfram/GEOSGeometry/guide/GEOSGeometry", "Categorization",
+ CellLabel->"URI",
+ CellID->2028424203,ExpressionUUID->"ee1b8451-7889-4e80-8c77-ad967b85e9ef"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->422683696,ExpressionUUID->"0cb64eaa-777f-4eae-9369-9ec5259d5f06"],
+
+Cell["XXXX", "Keywords",
+ CellID->168974396,ExpressionUUID->"2dbe5f7e-aad8-4674-8cf3-8c1b3664bd83"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, 281}, {Automatic, 93}},
+TaggingRules-><|"Paclet" -> "ChristopherWolfram/GEOSGeometry"|>,
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"6e7b3b77-31dd-4887-9a73-c00b92b37826"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 109, 1, 86, "GuideTitle",ExpressionUUID->"47169c9b-c5ff-4f28-b52d-d25d8c6c45c1",
+ CellID->521493613],
+Cell[688, 25, 237, 4, 28, "GuideAbstract",ExpressionUUID->"2bd9f54e-a44d-490d-93a3-bab13ec5e161",
+ CellID->862390284]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[962, 34, 108, 1, 71, "GuideFunctionsSection",ExpressionUUID->"8f61c4ac-b2b0-4ca1-9588-42af2dfe9810",
+ CellID->826369585],
+Cell[1073, 37, 533, 12, 24, "GuideText",ExpressionUUID->"e6c354d7-e214-416c-aace-7fd5e83c975b",
+ CellID->1694004930],
+Cell[CellGroupData[{
+Cell[1631, 53, 104, 1, 26, "GuideDelimiter",ExpressionUUID->"82bd6bb2-f6d1-4153-ae68-4ba49a6443c4",
+ CellID->1129793073],
+Cell[1738, 56, 528, 12, 24, "GuideText",ExpressionUUID->"b29ff185-c841-44fb-93d9-3a75f9d922b1",
+ CellID->693365513],
+Cell[2269, 70, 537, 12, 24, "GuideText",ExpressionUUID->"81f53c81-c574-4b1d-a083-d8c79e72f38c",
+ CellID->1760974863]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2843, 87, 103, 1, 26, "GuideDelimiter",ExpressionUUID->"d311f75c-64d7-4c5e-bcca-cb26c3b5f8b4",
+ CellID->570971504],
+Cell[2949, 90, 635, 14, 24, "GuideText",ExpressionUUID->"d88a250e-bfff-4017-8c83-6fce460b6079",
+ CellID->1825673217],
+Cell[3587, 106, 552, 12, 24, "GuideText",ExpressionUUID->"bc8114c5-dbef-4fc4-9423-b6c1b5b4a33a",
+ CellID->1498893450],
+Cell[4142, 120, 591, 13, 24, "GuideText",ExpressionUUID->"1e0365a3-175e-40e8-87f4-894686dfe2b7",
+ CellID->1231474160],
+Cell[4736, 135, 4419, 106, 43, "InlineGuideFunctionListing",ExpressionUUID->"86a8a4cd-8169-425d-a7ca-8b23b04c4649",
+ CellID->2058181741]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9192, 246, 103, 1, 26, "GuideDelimiter",ExpressionUUID->"88d12592-321a-4878-86f7-63920d69d7a3",
+ CellID->479110374],
+Cell[9298, 249, 535, 12, 24, "GuideText",ExpressionUUID->"bb7e43f8-a23e-47c4-a3a0-25473198a0ff",
+ CellID->395134225],
+Cell[9836, 263, 523, 12, 24, "GuideText",ExpressionUUID->"dbb02faa-771a-4553-a226-cd13f3139152",
+ CellID->407857057],
+Cell[10362, 277, 3315, 81, 42, "InlineGuideFunctionListing",ExpressionUUID->"0df1086a-0e19-4b03-9673-e1317a4e3fca",
+ CellID->1625505309]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13726, 364, 119, 1, 73, "GuideTutorialsSection",ExpressionUUID->"93a67dd9-7ba2-4f65-b8bf-6fddcba8c10e",
+ CellID->1893845970],
+Cell[13848, 367, 105, 1, 23, "GuideTutorial",ExpressionUUID->"287afeca-cbab-42f6-8e8b-0a51f7bcf46b",
+ CellID->2014085603],
+Cell[13956, 370, 105, 1, 23, "GuideTutorial",ExpressionUUID->"a86f834c-2945-4889-be11-0332d02ed749",
+ CellID->2099485607]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14098, 376, 190, 2, 73, "GuideMoreAboutSection",ExpressionUUID->"e76fb065-4622-4c8f-b5fa-70204a988959",
+ CellID->750792992],
+Cell[14291, 380, 106, 1, 23, "GuideMoreAbout",ExpressionUUID->"ad9fa4c1-a440-45eb-aba6-752ecf4a01a0",
+ CellID->2111390419],
+Cell[14400, 383, 106, 1, 23, "GuideMoreAbout",ExpressionUUID->"6b00e376-0dec-464d-9233-c7f48f073cf6",
+ CellID->1118989105]
+}, Open  ]],
+Cell[14521, 387, 125, 1, 73, "GuideRelatedLinksSection",ExpressionUUID->"54cc4d77-e7b6-47e7-9782-f38ddecdfde5",
+ CellID->1335590956],
+Cell[CellGroupData[{
+Cell[14671, 392, 111, 1, 71, "MetadataSection",ExpressionUUID->"71da0ea5-3a14-4ddf-bf44-76a2f6270838",
+ CellID->1778119048],
+Cell[14785, 395, 476, 12, 25, "History",ExpressionUUID->"40852819-f454-4fc8-a6c4-04940fec0332",
+ CellID->464408084],
+Cell[CellGroupData[{
+Cell[15286, 411, 123, 1, 20, "CategorizationSection",ExpressionUUID->"bf09cf20-378f-4af0-a958-2f76719d6fb4",
+ CellID->1351094590],
+Cell[15412, 414, 133, 2, 70, "Categorization",ExpressionUUID->"1f27f359-7461-4026-b171-8ad515af04e1",
+ CellID->354690752],
+Cell[15548, 418, 160, 2, 70, "Categorization",ExpressionUUID->"64960a8e-9f3b-4c3e-97a1-630371f78aa4",
+ CellID->2020348439],
+Cell[15711, 422, 157, 2, 70, "Categorization",ExpressionUUID->"01c973ee-9e11-41fe-9f86-0811eb79438a",
+ CellID->2132271556],
+Cell[15871, 426, 171, 2, 70, "Categorization",ExpressionUUID->"ee1b8451-7889-4e80-8c77-ad967b85e9ef",
+ CellID->2028424203]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16079, 433, 110, 1, 20, "KeywordsSection",ExpressionUUID->"0cb64eaa-777f-4eae-9369-9ec5259d5f06",
+ CellID->422683696],
+Cell[16192, 436, 99, 1, 70, "Keywords",ExpressionUUID->"2dbe5f7e-aad8-4674-8cf3-8c1b3664bd83",
+ CellID->168974396]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
