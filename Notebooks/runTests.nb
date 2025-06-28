@@ -1,0 +1,1195 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     57768,       1187]
+NotebookOptionsPosition[     56879,       1164]
+NotebookOutlinePosition[     57274,       1180]
+CellTagsIndexPosition[     57231,       1177]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testDir", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ParentDirectory", "@", 
+       RowBox[{"NotebookDirectory", "[", "]"}]}], ",", "\"\<Tests\>\""}], 
+     "}"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"26e97e5a-72f6-4aa3-a004-a847cbb655db"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PacletDirectoryLoad", "[", 
+   RowBox[{"ParentDirectory", "@", 
+    RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}]], "Input",
+ CellLabel->"In[9]:=",ExpressionUUID->"3a2c2917-ee58-42fd-b97e-3609a3de9bed"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"report", "=", 
+  RowBox[{"TestReport", "[", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*\>\"", ",", "testDir"}], "]"}], "]"}]}]], "Input",
+ CellLabel->"In[14]:=",ExpressionUUID->"227fbeca-e216-4a51-a487-2fa1c06abe79"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Test Report: GEOSGeometry.wlt\"", "SummaryItem"]}],
+                "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["3", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Test Report: GEOSGeometry.wlt\"", "SummaryItem"]}],
+                "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["3", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["3", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.017727`3.922028987811658", "\"s\"", "seconds", 
+                    "\"Seconds\""}, "Quantity", SyntaxForm -> Mod], 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: GEOSGeometry.wlt", "Aborted" -> False, 
+    "TestResults" -> <|
+     8635440695438129372 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.960057550181544`15.651306482250629*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "d1892b57-7663-4edd-907e-f650bccf19ff", "TestID" -> 
+         "t0lk317g0kdie1", "TestFileName" -> 
+         "/Users/christopher/git/GEOSGeometry/Tests/GEOSGeometry.wlt", 
+         "EvaluationID" -> "6f5d7059-e4f2-4560-8dd8-61c562e1df02", "Input" -> 
+         HoldForm[
+           Needs["ChristopherWolfram`GEOSGeometry`"]], "ExpectedOutput" -> 
+         HoldForm[Null], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[Null], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.000057`1.9063898535044814, "CPUTimeUsed" -> 
+         0.000058000000000113516`, "MemoryUsed" -> 3400, 
+         "IntermediateTestsTree" -> {}, "Outcome" -> "Success", "FailureType" -> 
+         None|>], 3183396911508656223 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.960057550181994`15.651306482250675*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "f5cef0ee-98ca-49a4-a68a-aadadc2e689c", "TestID" -> 
+         "t0vcw429jzzfhv", "TestFileName" -> 
+         "/Users/christopher/git/GEOSGeometry/Tests/GEOSGeometry.wlt", 
+         "EvaluationID" -> "4173e752-a122-4705-9533-56426be0063b", "Input" -> 
+         HoldForm[$CellContext`geom1 = 
+            ChristopherWolfram`GEOSGeometry`GEOSGeometry[$CellContext`poly1]; 
+           MatchQ[$CellContext`geom1, 
+             Blank[ChristopherWolfram`GEOSGeometry`GEOSGeometry]]], 
+         "ExpectedOutput" -> HoldForm[True], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.000083`2.0695930902080675, "CPUTimeUsed" -> 0.00008300000000049934,
+          "MemoryUsed" -> 3600, "IntermediateTestsTree" -> {}, "Outcome" -> 
+         "Success", "FailureType" -> None|>], 7427259692829032596 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.960057550182193`15.651306482250696*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "0289df04-aa93-42f6-965c-3595c5feb847", "TestID" -> 
+         "t11rhhd51pyjzo", "TestFileName" -> 
+         "/Users/christopher/git/GEOSGeometry/Tests/GEOSGeometry.wlt", 
+         "EvaluationID" -> "4e3e6656-e6bb-4965-aeff-afd988563cda", "Input" -> 
+         HoldForm[
+          Area[$CellContext`poly1] == 
+           ChristopherWolfram`GEOSGeometry`GEOSArea[$CellContext`geom1]], 
+         "ExpectedOutput" -> HoldForm[True], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.017587`4.39570676141892, "CPUTimeUsed" -> 0.014361000000000068`, 
+         "MemoryUsed" -> 637120, "IntermediateTestsTree" -> {}, "Outcome" -> 
+         "Success", "FailureType" -> None|>]|>, "FailureResults" -> <||>, 
+    "TestsNotEvaluatedKeys" -> {}, "TestsFailedWrongResultsKeys" -> {}, 
+    "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {8635440695438129372, 3183396911508656223, 
+     7427259692829032596}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellLabel->"Out[14]=",ExpressionUUID->"1203c102-77b1-4354-8e89-84763241448a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TabView", "[", 
+  RowBox[{"Column", "/@", 
+   RowBox[{"report", "[", "\"\<ResultsByOutcome\>\"", "]"}]}], "]"}]], "Input",\
+
+ CellLabel->"In[15]:=",ExpressionUUID->"2212be37-bc63-43c8-a0b4-6243b59df9aa"],
+
+Cell[BoxData[
+ TabViewBox[{{1,"\<\"Success\"\>"->
+  TagBox[GridBox[{
+     {
+      InterpretationBox[
+       RowBox[{
+        TagBox["TestObject",
+         "SummaryHead"], "[", 
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+         "Ready"}, 
+         TemplateBox[{
+           PaneSelectorBox[{False -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxOpener"]], 
+                   ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                   None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                   "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                 GraphicsBox[{
+                   InsetBox[
+                    BoxData[
+                    FormBox[
+                    PaneBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                    ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+                  PlotRange -> {{0, 1}, {0, 1}}, Background -> 
+                  GrayLevel[0.93], Axes -> False, AspectRatio -> 1, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], Frame -> True, FrameTicks -> None, 
+                  FrameStyle -> Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.55]]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Outcome: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Success\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Test ID: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> TagBox["\"t0lk317g0kdie1\"", HoldForm], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    TagBox["\"t0lk317g0kdie1\"", HoldForm], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated["t0lk317g0kdie1"]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+                AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}], True -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxCloser"]], 
+                   ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                   None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                   "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                 GraphicsBox[{
+                   InsetBox[
+                    BoxData[
+                    FormBox[
+                    PaneBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                    ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+                  PlotRange -> {{0, 1}, {0, 1}}, Background -> 
+                  GrayLevel[0.93], Axes -> False, AspectRatio -> 1, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], Frame -> True, FrameTicks -> None, 
+                  FrameStyle -> Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.55]]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Outcome: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Success\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Test ID: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> TagBox["\"t0lk317g0kdie1\"", HoldForm], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    TagBox["\"t0lk317g0kdie1\"", HoldForm], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated["t0lk317g0kdie1"]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Input: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> RowBox[{
+                    "Needs", "[", "\"ChristopherWolfram`GEOSGeometry`\"", 
+                    "]"}], True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    
+                    RowBox[{"Needs", "[", 
+                    "\"ChristopherWolfram`GEOSGeometry`\"", "]"}], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[
+                    Needs["ChristopherWolfram`GEOSGeometry`"]]], Method -> 
+                    "Preemptive", PassEventsDown -> Automatic, PassEventsUp -> 
+                    True}]], Background -> GrayLevel[0.85], StripOnInput -> 
+                    False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Expected output: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> "Null", True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    "Null", "\"Copy to clipboard.\"", TooltipStyle -> 
+                    "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[Null]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Actual output: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> "Null", True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    "Null", "\"Copy to clipboard.\"", TooltipStyle -> 
+                    "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[Null]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+                AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}]}, 
+            Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+          "SummaryPanel"],
+         DynamicModuleValues:>{}], "]"}],
+       TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.960057550181544`15.651306482250629*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "d1892b57-7663-4edd-907e-f650bccf19ff", "TestID" -> 
+         "t0lk317g0kdie1", "TestFileName" -> 
+         "/Users/christopher/git/GEOSGeometry/Tests/GEOSGeometry.wlt", 
+         "EvaluationID" -> "6f5d7059-e4f2-4560-8dd8-61c562e1df02", "Input" -> 
+         HoldForm[
+           Needs["ChristopherWolfram`GEOSGeometry`"]], "ExpectedOutput" -> 
+         HoldForm[Null], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[Null], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.000057`1.9063898535044814, "CPUTimeUsed" -> 
+         0.000058000000000113516`, "MemoryUsed" -> 3400, 
+         "IntermediateTestsTree" -> {}, "Outcome" -> "Success", "FailureType" -> 
+         None|>],
+       Editable->False,
+       SelectWithContents->True,
+       Selectable->False]},
+     {
+      InterpretationBox[
+       RowBox[{
+        TagBox["TestObject",
+         "SummaryHead"], "[", 
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+         "Ready"}, 
+         TemplateBox[{
+           PaneSelectorBox[{False -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxOpener"]], 
+                   ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                   None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                   "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                 GraphicsBox[{
+                   InsetBox[
+                    BoxData[
+                    FormBox[
+                    PaneBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                    ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+                  PlotRange -> {{0, 1}, {0, 1}}, Background -> 
+                  GrayLevel[0.93], Axes -> False, AspectRatio -> 1, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], Frame -> True, FrameTicks -> None, 
+                  FrameStyle -> Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.55]]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Outcome: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Success\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Test ID: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> TagBox["\"t0vcw429jzzfhv\"", HoldForm], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    TagBox["\"t0vcw429jzzfhv\"", HoldForm], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated["t0vcw429jzzfhv"]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+                AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}], True -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxCloser"]], 
+                   ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                   None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                   "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                 GraphicsBox[{
+                   InsetBox[
+                    BoxData[
+                    FormBox[
+                    PaneBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                    ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+                  PlotRange -> {{0, 1}, {0, 1}}, Background -> 
+                  GrayLevel[0.93], Axes -> False, AspectRatio -> 1, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], Frame -> True, FrameTicks -> None, 
+                  FrameStyle -> Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.55]]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Outcome: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Success\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Test ID: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> TagBox["\"t0vcw429jzzfhv\"", HoldForm], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    TagBox["\"t0vcw429jzzfhv\"", HoldForm], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated["t0vcw429jzzfhv"]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Input: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> RowBox[{
+                    RowBox[{"geom1", "=", 
+                    PanelBox[
+                    GraphicsBox[{
+                    RGBColor[
+                    NCache[
+                    Rational[1, 3], 0.3333333333333333], 
+                    NCache[
+                    Rational[1, 3], 0.3333333333333333], 
+                    NCache[
+                    Rational[3, 5], 0.6]], 
+                    EdgeForm[
+                    GrayLevel[0]], 
+                    
+                    PolygonBox[{{0.3947109680613967, 0.32775737864523147`}, {
+                    0.7481098930322905, 0.6197009749936628}, {
+                    0.6187532325437417, 0.4278267326181029}, {
+                    0.6586751620319715, 0.4090267715457139}, {
+                    0.608014695527461, 0.30718485808682594`}, {
+                    0.6647954916826868, 0.14785950975936601`}, {
+                    0.9120193290293828, 0.7723924323033313}, {
+                    0.937442845926181, 0.8816698340845242}, {
+                    0.9749120667004858, 0.9678414811408833}, {
+                    0.7220013135654841, 0.8360749410172852}, {
+                    0.30269599903449307`, 0.8752454691682323}, {
+                    0.6208365931135853, 0.6202040199670529}, {
+                    0.2989750835401106, 0.4097635320176902}, {
+                    0.18518672826839366`, 0.20143358439230274`}, {
+                    0.3947109680613967, 0.32775737864523147`}}]}, ImageSize -> 
+                    Small]]}], ";", 
+                    RowBox[{"MatchQ", "[", 
+                    RowBox[{"geom1", ",", "_GEOSGeometry"}], "]"}]}], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    RowBox[{
+                    RowBox[{"geom1", "=", 
+                    PanelBox[
+                    GraphicsBox[{
+                    RGBColor[
+                    NCache[
+                    Rational[1, 3], 0.3333333333333333], 
+                    NCache[
+                    Rational[1, 3], 0.3333333333333333], 
+                    NCache[
+                    Rational[3, 5], 0.6]], 
+                    EdgeForm[
+                    GrayLevel[0]], 
+                    
+                    PolygonBox[{{0.3947109680613967, 0.32775737864523147`}, {
+                    0.7481098930322905, 0.6197009749936628}, {
+                    0.6187532325437417, 0.4278267326181029}, {
+                    0.6586751620319715, 0.4090267715457139}, {
+                    0.608014695527461, 0.30718485808682594`}, {
+                    0.6647954916826868, 0.14785950975936601`}, {
+                    0.9120193290293828, 0.7723924323033313}, {
+                    0.937442845926181, 0.8816698340845242}, {
+                    0.9749120667004858, 0.9678414811408833}, {
+                    0.7220013135654841, 0.8360749410172852}, {
+                    0.30269599903449307`, 0.8752454691682323}, {
+                    0.6208365931135853, 0.6202040199670529}, {
+                    0.2989750835401106, 0.4097635320176902}, {
+                    0.18518672826839366`, 0.20143358439230274`}, {
+                    0.3947109680613967, 0.32775737864523147`}}]}, ImageSize -> 
+                    Small]]}], ";", 
+                    RowBox[{"MatchQ", "[", 
+                    RowBox[{"geom1", ",", "_GEOSGeometry"}], "]"}]}], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    
+                    Unevaluated[$CellContext`geom1 = 
+                    ChristopherWolfram`GEOSGeometry`GEOSGeometry[$CellContext`\
+poly1]; MatchQ[$CellContext`geom1, 
+                    Blank[ChristopherWolfram`GEOSGeometry`GEOSGeometry]]]], 
+                    Method -> "Preemptive", PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], Background -> GrayLevel[0.85], 
+                    StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Expected output: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> "True", True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    "True", "\"Copy to clipboard.\"", TooltipStyle -> 
+                    "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[True]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Actual output: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> "True", True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    "True", "\"Copy to clipboard.\"", TooltipStyle -> 
+                    "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[True]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+                AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}]}, 
+            Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+          "SummaryPanel"],
+         DynamicModuleValues:>{}], "]"}],
+       TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.960057550181994`15.651306482250675*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "f5cef0ee-98ca-49a4-a68a-aadadc2e689c", "TestID" -> 
+         "t0vcw429jzzfhv", "TestFileName" -> 
+         "/Users/christopher/git/GEOSGeometry/Tests/GEOSGeometry.wlt", 
+         "EvaluationID" -> "4173e752-a122-4705-9533-56426be0063b", "Input" -> 
+         HoldForm[$CellContext`geom1 = 
+            ChristopherWolfram`GEOSGeometry`GEOSGeometry[$CellContext`poly1]; 
+           MatchQ[$CellContext`geom1, 
+             Blank[ChristopherWolfram`GEOSGeometry`GEOSGeometry]]], 
+         "ExpectedOutput" -> HoldForm[True], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.000083`2.0695930902080675, "CPUTimeUsed" -> 0.00008300000000049934,
+          "MemoryUsed" -> 3600, "IntermediateTestsTree" -> {}, "Outcome" -> 
+         "Success", "FailureType" -> None|>],
+       Editable->False,
+       SelectWithContents->True,
+       Selectable->False]},
+     {
+      InterpretationBox[
+       RowBox[{
+        TagBox["TestObject",
+         "SummaryHead"], "[", 
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+         "Ready"}, 
+         TemplateBox[{
+           PaneSelectorBox[{False -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxOpener"]], 
+                   ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                   None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                   "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                 GraphicsBox[{
+                   InsetBox[
+                    BoxData[
+                    FormBox[
+                    PaneBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                    ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+                  PlotRange -> {{0, 1}, {0, 1}}, Background -> 
+                  GrayLevel[0.93], Axes -> False, AspectRatio -> 1, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], Frame -> True, FrameTicks -> None, 
+                  FrameStyle -> Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.55]]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Outcome: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Success\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Test ID: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> TagBox["\"t11rhhd51pyjzo\"", HoldForm], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    TagBox["\"t11rhhd51pyjzo\"", HoldForm], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated["t11rhhd51pyjzo"]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+                AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}], True -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxCloser"]], 
+                   ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                   None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                   "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                 GraphicsBox[{
+                   InsetBox[
+                    BoxData[
+                    FormBox[
+                    PaneBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                    ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+                  PlotRange -> {{0, 1}, {0, 1}}, Background -> 
+                  GrayLevel[0.93], Axes -> False, AspectRatio -> 1, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], Frame -> True, FrameTicks -> None, 
+                  FrameStyle -> Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.55]]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Outcome: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Success\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Test ID: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    PaneSelectorBox[{
+                    False -> TagBox["\"t11rhhd51pyjzo\"", HoldForm], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    TagBox["\"t11rhhd51pyjzo\"", HoldForm], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated["t11rhhd51pyjzo"]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Input: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> RowBox[{
+                    RowBox[{"Area", "[", "poly1", "]"}], "\[Equal]", 
+                    RowBox[{"GEOSArea", "[", "geom1", "]"}]}], True -> 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    RowBox[{
+                    RowBox[{"Area", "[", "poly1", "]"}], "\[Equal]", 
+                    RowBox[{"GEOSArea", "[", "geom1", "]"}]}], 
+                    "\"Copy to clipboard.\"", TooltipStyle -> "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[
+                    Area[$CellContext`poly1] == 
+                    ChristopherWolfram`GEOSGeometry`GEOSArea[$CellContext`\
+geom1]]], Method -> "Preemptive", PassEventsDown -> Automatic, PassEventsUp -> 
+                    True}]], Background -> GrayLevel[0.85], StripOnInput -> 
+                    False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Expected output: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> "True", True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    "True", "\"Copy to clipboard.\"", TooltipStyle -> 
+                    "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[True]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Actual output: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    PaneBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> "True", True -> StyleBox[
+                    TagBox[
+                    TagBox[
+                    TooltipBox[
+                    "True", "\"Copy to clipboard.\"", TooltipStyle -> 
+                    "TextStyling"], 
+                    Annotation[#, "Copy to clipboard.", "Tooltip"]& ], 
+                    EventHandlerTag[{"MouseClicked" :> CopyToClipboard[
+                    Unevaluated[True]], Method -> "Preemptive", 
+                    PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+                    Background -> GrayLevel[0.85], StripOnInput -> False]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], Short[#, 
+                    Rational[2, 3]]& ], ImageSize -> {{1, 500}, Automatic}, 
+                    BaselinePosition -> Baseline, ContentPadding -> False, 
+                    FrameMargins -> 0, StripOnInput -> True], 
+                    "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+                AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}]}, 
+            Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+          "SummaryPanel"],
+         DynamicModuleValues:>{}], "]"}],
+       TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.960057550182193`15.651306482250696*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "0289df04-aa93-42f6-965c-3595c5feb847", "TestID" -> 
+         "t11rhhd51pyjzo", "TestFileName" -> 
+         "/Users/christopher/git/GEOSGeometry/Tests/GEOSGeometry.wlt", 
+         "EvaluationID" -> "4e3e6656-e6bb-4965-aeff-afd988563cda", "Input" -> 
+         HoldForm[
+          Area[$CellContext`poly1] == 
+           ChristopherWolfram`GEOSGeometry`GEOSArea[$CellContext`geom1]], 
+         "ExpectedOutput" -> HoldForm[True], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.017587`4.39570676141892, "CPUTimeUsed" -> 0.014361000000000068`, 
+         "MemoryUsed" -> 637120, "IntermediateTestsTree" -> {}, "Outcome" -> 
+         "Success", "FailureType" -> None|>],
+       Editable->False,
+       SelectWithContents->True,
+       Selectable->False]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"]}, {2,"\<\"MessagesFailure\"\>"->
+  InterpretationBox[
+   TagBox[GridBox[{
+      {""}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   Column[{}]]}, {3,"\<\"Failure\"\>"->
+  InterpretationBox[
+   TagBox[GridBox[{
+      {""}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   Column[{}]]}, {4,"\<\"NotEvaluated\"\>"->
+  InterpretationBox[
+   TagBox[GridBox[{
+      {""}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   Column[{}]]}}, 1]], "Output",
+ CellLabel->"Out[15]=",ExpressionUUID->"a073b25d-f86d-404d-bfbd-ab1dca399ab3"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{116, Automatic}, {55, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0ea3f2bf-1d26-4b6a-9dfe-d9ba339143d7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 345, 9, 29, "Input",ExpressionUUID->"26e97e5a-72f6-4aa3-a004-a847cbb655db"],
+Cell[902, 31, 247, 5, 29, "Input",ExpressionUUID->"3a2c2917-ee58-42fd-b97e-3609a3de9bed"],
+Cell[CellGroupData[{
+Cell[1174, 40, 246, 5, 29, "Input",ExpressionUUID->"227fbeca-e216-4a51-a487-2fa1c06abe79"],
+Cell[1423, 47, 10915, 218, 58, "Output",ExpressionUUID->"1203c102-77b1-4354-8e89-84763241448a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12375, 270, 227, 5, 29, "Input",ExpressionUUID->"2212be37-bc63-43c8-a0b4-6243b59df9aa"],
+Cell[12605, 277, 44258, 884, 193, "Output",ExpressionUUID->"a073b25d-f86d-404d-bfbd-ab1dca399ab3"]
+}, Open  ]]
+}
+]
+*)
+
