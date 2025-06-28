@@ -31,6 +31,7 @@ PacletObject[
           "ChristopherWolfram`GEOSGeometry`GEOSDistanceWithin",
           "ChristopherWolfram`GEOSGeometry`GEOSEquals",
           "ChristopherWolfram`GEOSGeometry`GEOSGeometry",
+          "ChristopherWolfram`GEOSGeometry`GEOSPreparedGeometry",
           "ChristopherWolfram`GEOSGeometry`GEOSHausdorffDistance",
           "ChristopherWolfram`GEOSGeometry`GEOSIntersection",
           "ChristopherWolfram`GEOSGeometry`GEOSIntersects",

@@ -67,7 +67,7 @@ MakeBoxes[geom_GEOSGeometry, form:StandardForm] :=
 
 HoldPattern[GEOSPreparedGeometry][$Failed] := $Failed
 HoldPattern[GEOSPreparedGeometry][geom_GEOSGeometry] := GEOSPreparedGeometry[geom, GL`GEOSPrepare[geom["Raw"]]]
-HoldPattern[GEOSPreparedGeometry][graphics:Except[_DataStructure]] := GEOSPreparedGeometry[GL`ToGEOS[graphics]]
+HoldPattern[GEOSPreparedGeometry][graphics:Except[_DataStructure]] := GEOSPreparedGeometry[GEOSGeometry[graphics]]
 
 HoldPattern[GEOSPreparedGeometry][geom_, prep_]["GEOSGeometry"] := geom
 HoldPattern[GEOSPreparedGeometry][geom_, prep_]["Raw"] := prep

@@ -86,6 +86,10 @@ TestCreate[
 ]
 
 TestCreate[
+  MatchQ[GEOSPreparedGeometry[poly1], _GEOSPreparedGeometry]
+]
+
+TestCreate[
   MatchQ[GEOSPreparedGeometry[geom1], _GEOSPreparedGeometry]
 ]
 
