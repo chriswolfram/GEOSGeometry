@@ -588,6 +588,7 @@ Cell[BoxData[
   RowBox[{"PacletDirectoryLoad", "[", 
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input", "Excluded",
  InitializationCell->True,
+ CellLabel->"In[1]:=",
  CellID->996717066,ExpressionUUID->"4768e6d8-d978-4168-b1ea-5c5724894185"],
 
 Cell[BoxData[
@@ -595,6 +596,7 @@ Cell[BoxData[
   RowBox[{"Needs", "[", "\"\<ChristopherWolfram`GEOSGeometry`\>\"", "]"}], 
   ";"}]], "Input", "Excluded",
  InitializationCell->True,
+ CellLabel->"In[2]:=",
  CellID->172764492,ExpressionUUID->"eab4e41c-6550-488f-bac5-d41fb91df8c8"]
 }, Open  ]],
 
@@ -603,9 +605,23 @@ Cell[CellGroupData[{
 Cell["Basic Examples", "Subsection",
  CellID->462042388,ExpressionUUID->"a478b5aa-562a-49ee-9843-fb6f8472a14e"],
 
-Cell["Show a few simple examples of common uses of the paclet:", "Text",
- CellTags->"DefaultContent",
- CellID->319073343,ExpressionUUID->"d7683e3a-d1f8-4b27-a11b-f0fc92ada7be"],
+Cell[BoxData["Quit"], "Input",
+ CellLabel->"In[22]:=",
+ CellID->1008188739,ExpressionUUID->"a7742aac-39ad-4885-9dbe-12d23056036b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GEOSArea", "@", 
+  RowBox[{"GEOSGeometry", "[", 
+   RowBox[{"RandomPolygon", "[", "]"}], "]"}]}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->1846178808,ExpressionUUID->"1276dff3-9098-4785-85fd-ec214b83f5f5"],
+
+Cell[BoxData["0.4510125778155788`"], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1070277359,ExpressionUUID->"8a28d734-4cbb-4d91-809d-27797473dbea"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -617,20 +633,15 @@ Cell[BoxData[
   TaggingRules -> {"DefaultContentBoxes" -> True},
   AutoDelete->True]], "Input",
  CellTags->"DefaultContent",
- CellLabel->"In[1]:=",
+ CellLabel->"In[3]:=",
  CellID->593829399,ExpressionUUID->"87ad62e7-96de-45a7-bb4c-27a76d355448"],
 
 Cell[BoxData[
- TagBox[
-  FractionBox[
-   SuperscriptBox["a", "2"], 
-   RowBox[{"b", "+", "c"}]],
-  #& ,
-  TaggingRules -> {"DefaultContentBoxes" -> True},
-  AutoDelete->True]], "Output",
+ RowBox[{"MyFunction", "[", 
+  RowBox[{"a", ",", "b", ",", "c"}], "]"}]], "Output",
  CellTags->"DefaultContent",
- CellLabel->"Out[1]=",
- CellID->197444189,ExpressionUUID->"8873a1cb-c420-4e97-8426-d0ebb364f109"]
+ CellLabel->"Out[3]=",
+ CellID->1664980854,ExpressionUUID->"2199fcff-fdb6-4a79-ac1b-5c221780cd07"]
 }, Open  ]]
 }, Open  ]],
 
@@ -3507,7 +3518,7 @@ GitHub), you can provide the URL here.", "MoreInfoText"], Background ->
   "Source Control Repository", "SourceControlURL", "TemplateCellGroup"},
  CellID->221376991,ExpressionUUID->"bab913bf-cfb7-4245-8036-9f66fa747dd7"],
 
-Cell["https://github.com/UserName/MyPaclet", "Text",
+Cell["https://github.com/chriswolfram/GEOSGeometry", "Text",
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
        SelectedNotebook[], After, Cell]; NotebookFind[
        SelectedNotebook[], "TabNext", Next, CellTags, AutoScroll -> True, 
@@ -3791,8 +3802,9 @@ Cell[BoxData[
           "RowDefault"]},
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "Data Manipulation & Analysis"}], 
-           "\" \"", 
+           CheckboxBox[
+           "Data Manipulation & Analysis", {
+            False, "Data Manipulation & Analysis"}], "\" \"", 
            StyleBox[
            "\"Data Manipulation & Analysis\"", FontSize -> 12, Editable -> 
             False, StripOnInput -> False]},
@@ -3807,8 +3819,9 @@ Cell[BoxData[
           "RowDefault"]},
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "Geographic Data & Computation"}], 
-           "\" \"", 
+           CheckboxBox[
+           "Geographic Data & Computation", {
+            False, "Geographic Data & Computation"}], "\" \"", 
            StyleBox[
            "\"Geographic Data & Computation\"", FontSize -> 12, Editable -> 
             False, StripOnInput -> False]},
@@ -3904,7 +3917,7 @@ Cell[BoxData[
           "RowDefault"]},
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "Geometry"}], "\" \"", 
+           CheckboxBox["Geometry", {False, "Geometry"}], "\" \"", 
            StyleBox[
            "\"Geometry\"", FontSize -> 12, Editable -> False, StripOnInput -> 
             False]},
@@ -4071,8 +4084,7 @@ Cell["Source, reference or citation", "Item",
        WrapAround -> True], Blank[NotebookSelection] :> SelectionMove[
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
- CellTags->{"DefaultContent", "TabNext"},
- CellID->702019342,ExpressionUUID->"3fb5bcb8-54b8-4b49-869f-1bd913af5027"]
+ CellID->555849938,ExpressionUUID->"2ba1e4b6-745b-4e42-a5d5-a3cc26d312ab"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4105,7 +4117,7 @@ to the paclet.", "MoreInfoText"], Background -> GrayLevel[0.95], FrameMargins ->
  CellTags->{"Links", "TemplateCellGroup"},
  CellID->179193585,ExpressionUUID->"d7dc8d68-61be-460b-b557-def3bd8074f9"],
 
-Cell["Link to other related material", "Item",
+Cell["https://libgeos.org", "Item",
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
        SelectedNotebook[], After, Cell]; NotebookFind[
        SelectedNotebook[], "TabNext", Next, CellTags, AutoScroll -> True, 
@@ -5425,7 +5437,7 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 }, Open  ]]
 },
 WindowSize->{1091, Automatic},
-WindowMargins->{{318, Automatic}, {Automatic, 70}},
+WindowMargins->{{Automatic, 52}, {Automatic, 47}},
 WindowTitle->"GEOSGeometry | Definition Notebook",
 TaggingRules->{
  "ResourceType" -> "Paclet", "ResourceCreateNotebook" -> True, 
