@@ -3,6 +3,7 @@ BeginPackage["ChristopherWolfram`GEOSGeometry`"];
 Needs["ChristopherWolfram`GEOSGeometry`Utilities`"]
 Needs["GEOSLink`" -> "GL`"]
 
+ToGEOS
 GEOSGeometry
 
 GEOSArea
@@ -36,6 +37,7 @@ GEOSBoundary
 GEOSBuffer
 
 (* Prepared geometry *)
+GEOSPrepare
 GEOSPreparedGeometry
 
 Begin["`Private`"];
@@ -43,9 +45,9 @@ Begin["`Private`"];
 
 (********************************* GEOSGeometry *********************************)
 
-HoldPattern[GEOSGeometry][$Failed] := $Failed
-HoldPattern[GEOSGeometry][_?(TrueQ@*GL`GEOSNullQ)] := $Failed
-HoldPattern[GEOSGeometry][graphics:Except[_DataStructure]] := GEOSGeometry[GL`ToGEOS[graphics]]
+ToGEOS[g_] := GEOSGeometry[GL`ToGEOS[g]]
+
+GEOSGeometry[$Failed] := $Failed
 
 HoldPattern[GEOSGeometry][geom_]["Raw"] := geom
 
@@ -65,9 +67,11 @@ MakeBoxes[geom_GEOSGeometry, form:StandardForm] :=
 
 (********************************* GEOSPreparedGeometry *********************************)
 
-HoldPattern[GEOSPreparedGeometry][$Failed] := $Failed
-HoldPattern[GEOSPreparedGeometry][geom_GEOSGeometry] := GEOSPreparedGeometry[geom, GL`GEOSPrepare[geom["Raw"]]]
-HoldPattern[GEOSPreparedGeometry][graphics:Except[_DataStructure]] := GEOSPreparedGeometry[GEOSGeometry[graphics]]
+GEOSPrepare[geom_GEOSGeometry] := GEOSPreparedGeometry[geom, GL`GEOSPrepare[geom["Raw"]]]
+GEOSPrepare[g_] := GEOSPrepare[ToGEOS[g]]
+GEOSPrepare[$Failed] := $Failed
+
+GEOSPreparedGeometry[_, $Failed] := $Failed
 
 HoldPattern[GEOSPreparedGeometry][geom_, prep_]["GEOSGeometry"] := geom
 HoldPattern[GEOSPreparedGeometry][geom_, prep_]["Raw"] := prep
@@ -88,66 +92,51 @@ MakeBoxes[prep_GEOSPreparedGeometry, form:StandardForm] :=
 
 (********************************* Operations *********************************)
 
-DeclareFunction[GEOSArea, iGEOSArea, 1];
-iGEOSArea[geom_GEOSGeometry, opts_] := GL`GEOSArea[geom["Raw"]]
+GEOSArea[geom_GEOSGeometry] := GL`GEOSArea[geom["Raw"]]
 
-DeclareFunction[GEOSLength, iGEOSLength, 1];
-iGEOSLength[geom_GEOSGeometry, opts_] := GL`GEOSLength[geom["Raw"]]
+GEOSLength[geom_GEOSGeometry] := GL`GEOSLength[geom["Raw"]]
 
-DeclareFunction[GEOSDistance, iGEOSDistance, 2];
-iGEOSDistance[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSDistance[geom1["Raw"], geom2["Raw"]]
-iGEOSDistance[prep_GEOSPreparedGeometry, geom_GEOSGeometry, opts_] := GL`GEOSPreparedDistance[prep["Raw"], geom["Raw"]]
-iGEOSDistance[geom_GEOSGeometry, prep_GEOSPreparedGeometry, opts_] := GL`GEOSPreparedDistance[prep["Raw"], geom["Raw"]]
+GEOSDistance[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSDistance[geom1["Raw"], geom2["Raw"]]
+GEOSDistance[prep_GEOSPreparedGeometry, geom_GEOSGeometry] := GL`GEOSPreparedDistance[prep["Raw"], geom["Raw"]]
+GEOSDistance[geom_GEOSGeometry, prep_GEOSPreparedGeometry] := GL`GEOSPreparedDistance[prep["Raw"], geom["Raw"]]
 
-DeclareFunction[GEOSDistanceWithin, iGEOSDistanceWithin, 3];
-iGEOSDistanceWithin[geom1_GEOSGeometry, geom2_GEOSGeometry, d_?NumberQ, opts_] := GL`GEOSDistanceWithin[geom1["Raw"], geom2["Raw"], d]
-iGEOSDistanceWithin[prep_GEOSPreparedGeometry, geom_GEOSGeometry, d_?NumberQ, opts_] := GL`GEOSPreparedDistanceWithin[prep["Raw"], geom["Raw"], d]
-iGEOSDistanceWithin[geom_GEOSGeometry, prep_GEOSPreparedGeometry, d_?NumberQ, opts_] := GL`GEOSPreparedDistanceWithin[prep["Raw"], geom["Raw"], d]
+GEOSDistanceWithin[geom1_GEOSGeometry, geom2_GEOSGeometry, d_] := GL`GEOSDistanceWithin[geom1["Raw"], geom2["Raw"], d]
+GEOSDistanceWithin[prep_GEOSPreparedGeometry, geom_GEOSGeometry, d_] := GL`GEOSPreparedDistanceWithin[prep["Raw"], geom["Raw"], d]
+GEOSDistanceWithin[geom_GEOSGeometry, prep_GEOSPreparedGeometry, d_] := GL`GEOSPreparedDistanceWithin[prep["Raw"], geom["Raw"], d]
 
-DeclareFunction[GEOSCentroid, iGEOSCentroid, 1];
-iGEOSCentroid[geom_GEOSGeometry, opts_] := Replace[GEOSGeometry[GL`GEOSCentroid[geom["Raw"]]]["Geometry"], Point[c_] :> c]
+GEOSCentroid[geom_GEOSGeometry] := Replace[GEOSGeometry[GL`GEOSCentroid[geom["Raw"]]]["Geometry"], Point[c_] :> c]
 
-DeclareFunction[GEOSHausdorffDistance, iGEOSHausdorffDistance, 2];
-iGEOSHausdorffDistance[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSHausdorffDistance[geom1["Raw"], geom2["Raw"]]
+GEOSHausdorffDistance[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSHausdorffDistance[geom1["Raw"], geom2["Raw"]]
 
 
-DeclareFunction[GEOSDisjoint, iGEOSDisjoint, 2];
-iGEOSDisjoint[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSDisjoint[geom1["Raw"], geom2["Raw"]]
-iGEOSDisjoint[prep_GEOSPreparedGeometry, geom_GEOSGeometry, opts_] := GL`GEOSPreparedDisjoint[prep["Raw"], geom["Raw"]]
-iGEOSDisjoint[geom_GEOSGeometry, prep_GEOSPreparedGeometry, opts_] := GL`GEOSPreparedDisjoint[prep["Raw"], geom["Raw"]]
+GEOSDisjoint[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSDisjoint[geom1["Raw"], geom2["Raw"]]
+GEOSDisjoint[prep_GEOSPreparedGeometry, geom_GEOSGeometry] := GL`GEOSPreparedDisjoint[prep["Raw"], geom["Raw"]]
+GEOSDisjoint[geom_GEOSGeometry, prep_GEOSPreparedGeometry] := GL`GEOSPreparedDisjoint[prep["Raw"], geom["Raw"]]
 
-DeclareFunction[GEOSCovers, iGEOSCovers, 2];
-iGEOSCovers[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSCovers[geom1["Raw"], geom2["Raw"]]
-iGEOSCovers[prep_GEOSPreparedGeometry, geom_GEOSGeometry, opts_] := GL`GEOSPreparedCovers[prep["Raw"], geom["Raw"]]
-iGEOSCovers[geom_GEOSGeometry, prep_GEOSPreparedGeometry, opts_] := GL`GEOSPreparedCovers[prep["Raw"], geom["Raw"]]
+GEOSCovers[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSCovers[geom1["Raw"], geom2["Raw"]]
+GEOSCovers[prep_GEOSPreparedGeometry, geom_GEOSGeometry] := GL`GEOSPreparedCovers[prep["Raw"], geom["Raw"]]
+GEOSCovers[geom_GEOSGeometry, prep_GEOSPreparedGeometry] := GL`GEOSPreparedCovers[prep["Raw"], geom["Raw"]]
 
-DeclareFunction[GEOSOverlaps, iGEOSOverlaps, 2];
-iGEOSOverlaps[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSOverlaps[geom1["Raw"], geom2["Raw"]]
+GEOSOverlaps[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSOverlaps[geom1["Raw"], geom2["Raw"]]
 
-DeclareFunction[GEOSContains, iGEOSContains, 2];
-iGEOSContains[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSContains[geom1["Raw"], geom2["Raw"]]
-iGEOSContains[prep_GEOSPreparedGeometry, geom_GEOSGeometry, opts_] := GL`GEOSPreparedContains[prep["Raw"], geom["Raw"]]
-iGEOSContains[geom_GEOSGeometry, prep_GEOSPreparedGeometry, opts_] := GL`GEOSPreparedContains[prep["Raw"], geom["Raw"]]
+GEOSContains[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSContains[geom1["Raw"], geom2["Raw"]]
+GEOSContains[prep_GEOSPreparedGeometry, geom_GEOSGeometry] := GL`GEOSPreparedContains[prep["Raw"], geom["Raw"]]
+GEOSContains[geom_GEOSGeometry, prep_GEOSPreparedGeometry] := GL`GEOSPreparedContains[prep["Raw"], geom["Raw"]]
 
-DeclareFunction[GEOSTouches, iGEOSTouches, 2];
-iGEOSTouches[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSTouches[geom1["Raw"], geom2["Raw"]]
-iGEOSTouches[prep_GEOSPreparedGeometry, geom_GEOSGeometry, opts_] := GL`GEOSPreparedTouches[prep["Raw"], geom["Raw"]]
-iGEOSTouches[geom_GEOSGeometry, prep_GEOSPreparedGeometry, opts_] := GL`GEOSPreparedTouches[prep["Raw"], geom["Raw"]]
+GEOSTouches[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSTouches[geom1["Raw"], geom2["Raw"]]
+GEOSTouches[prep_GEOSPreparedGeometry, geom_GEOSGeometry] := GL`GEOSPreparedTouches[prep["Raw"], geom["Raw"]]
+GEOSTouches[geom_GEOSGeometry, prep_GEOSPreparedGeometry] := GL`GEOSPreparedTouches[prep["Raw"], geom["Raw"]]
 
-DeclareFunction[GEOSIntersects, iGEOSIntersects, 2];
-iGEOSIntersects[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSIntersects[geom1["Raw"], geom2["Raw"]]
-iGEOSIntersects[prep_GEOSPreparedGeometry, geom_GEOSGeometry, opts_] := GL`GEOSPreparedIntersects[prep["Raw"], geom["Raw"]]
-iGEOSIntersects[geom_GEOSGeometry, prep_GEOSPreparedGeometry, opts_] := GL`GEOSPreparedIntersects[prep["Raw"], geom["Raw"]]
+GEOSIntersects[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSIntersects[geom1["Raw"], geom2["Raw"]]
+GEOSIntersects[prep_GEOSPreparedGeometry, geom_GEOSGeometry] := GL`GEOSPreparedIntersects[prep["Raw"], geom["Raw"]]
+GEOSIntersects[geom_GEOSGeometry, prep_GEOSPreparedGeometry] := GL`GEOSPreparedIntersects[prep["Raw"], geom["Raw"]]
 
-DeclareFunction[GEOSWithin, iGEOSWithin, 2];
-iGEOSWithin[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSWithin[geom1["Raw"], geom2["Raw"]]
+GEOSWithin[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSWithin[geom1["Raw"], geom2["Raw"]]
 
-DeclareFunction[GEOSEquals, iGEOSEquals, 2];
-iGEOSEquals[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GL`GEOSEquals[geom1["Raw"], geom2["Raw"]]
+GEOSEquals[geom1_GEOSGeometry, geom2_GEOSGeometry] := GL`GEOSEquals[geom1["Raw"], geom2["Raw"]]
 
 
-DeclareFunction[GEOSConvexHull, iGEOSConvexHull, 1];
-iGEOSConvexHull[geom_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSConvexHull[geom["Raw"]]]
+GEOSConvexHull[geom_GEOSGeometry] := GEOSGeometry[GL`GEOSConvexHull[geom["Raw"]]]
 
 
 Options[GEOSDelaunayMesh] = {
@@ -187,27 +176,21 @@ iGEOSVoronoiMesh[geom_GEOSGeometry, Automatic, opts_] :=
 iGEOSVoronoiMesh[geom_GEOSGeometry, opts_] := iGEOSVoronoiMesh[geom, Automatic, opts]
 
 
-DeclareFunction[GEOSUnion, iGEOSUnion, {1,2}];
-iGEOSUnion[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSUnion[geom1["Raw"], geom2["Raw"]]]
-iGEOSUnion[geom_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSUnaryUnion[geom["Raw"]]]
-iGEOSUnion[geoms:{___GEOSGeometry}, opts_] := GEOSGeometry[GL`GEOSUnaryUnion[GL`GEOSMerge[#["Raw"]&/@geoms]]]
+GEOSUnion[geom1_GEOSGeometry, geom2_GEOSGeometry] := GEOSGeometry[GL`GEOSUnion[geom1["Raw"], geom2["Raw"]]]
+GEOSUnion[geom_GEOSGeometry] := GEOSGeometry[GL`GEOSUnaryUnion[geom["Raw"]]]
+GEOSUnion[geoms:{___GEOSGeometry}] := GEOSGeometry[GL`GEOSUnaryUnion[GL`GEOSMerge[#["Raw"]&/@geoms]]]
 
-DeclareFunction[GEOSIntersection, iGEOSIntersection, 2];
-iGEOSIntersection[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSIntersection[geom1["Raw"], geom2["Raw"]]]
+GEOSIntersection[geom1_GEOSGeometry, geom2_GEOSGeometry] := GEOSGeometry[GL`GEOSIntersection[geom1["Raw"], geom2["Raw"]]]
 
-DeclareFunction[GEOSDifference, iGEOSDifference, 2];
-iGEOSDifference[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSDifference[geom1["Raw"], geom2["Raw"]]]
+GEOSDifference[geom1_GEOSGeometry, geom2_GEOSGeometry] := GEOSGeometry[GL`GEOSDifference[geom1["Raw"], geom2["Raw"]]]
 
-DeclareFunction[GEOSSymmetricDifference, iGEOSSymmetricDifference, 2];
-iGEOSSymmetricDifference[geom1_GEOSGeometry, geom2_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSSymmetricDifference[geom1["Raw"], geom2["Raw"]]]
+GEOSSymmetricDifference[geom1_GEOSGeometry, geom2_GEOSGeometry] := GEOSGeometry[GL`GEOSSymmetricDifference[geom1["Raw"], geom2["Raw"]]]
 
 
-DeclareFunction[GEOSMerge, iGEOSMerge, 1];
-iGEOSMerge[geoms:{___GEOSGeometry}, opts_] := GEOSGeometry[GL`GEOSMerge[#["Raw"]&/@geoms]]
+GEOSMerge[geoms:{___GEOSGeometry}] := GEOSGeometry[GL`GEOSMerge[#["Raw"]&/@geoms]]
 
 
-DeclareFunction[GEOSBoundary, iGEOSBoundary, 1];
-iGEOSBoundary[geom_GEOSGeometry, opts_] := GEOSGeometry[GL`GEOSBoundary[geom["Raw"]]]
+GEOSBoundary[geom_GEOSGeometry] := GEOSGeometry[GL`GEOSBoundary[geom["Raw"]]]
 
 Options[GEOSBuffer] = {
 	"Segments" -> 5

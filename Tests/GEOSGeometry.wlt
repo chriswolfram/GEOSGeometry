@@ -53,7 +53,7 @@ regionGEOSSameQ[geos_, reg_, epsilon_:0.0001] :=
   Area[RegionSymmetricDifference[reg, geos["Geometry"]]] < epsilon
 
 TestCreate[
-  geom1 = GEOSGeometry[poly1];
+  geom1 = ToGEOS[poly1];
   MatchQ[geom1, _GEOSGeometry]
 ]
 
@@ -66,39 +66,39 @@ TestCreate[
 ]
 
 TestCreate[
-  geom2 = GEOSGeometry[poly2];
+  geom2 = ToGEOS[poly2];
   MatchQ[geom2, _GEOSGeometry]
 ]
 
 TestCreate[
-  geom3 = GEOSGeometry[poly3];
+  geom3 = ToGEOS[poly3];
   MatchQ[geom3, _GEOSGeometry]
 ]
 
 TestCreate[
-  geomMoved = GEOSGeometry[polyMoved];
+  geomMoved = ToGEOS[polyMoved];
   MatchQ[geomMoved, _GEOSGeometry]
 ]
 
 TestCreate[
-  pointGeom1 = GEOSGeometry[Point[points]];
+  pointGeom1 = ToGEOS[Point[points]];
   MatchQ[pointGeom1, _GEOSGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSPreparedGeometry[poly1], _GEOSPreparedGeometry]
+  MatchQ[GEOSPrepare[poly1], _GEOSPreparedGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSPreparedGeometry[geom1], _GEOSPreparedGeometry]
+  MatchQ[GEOSPrepare[geom1], _GEOSPreparedGeometry]
 ]
 
 TestCreate[
-  MatchQ[GEOSPreparedGeometry[geom1]["GEOSGeometry"], _GEOSGeometry]
+  MatchQ[GEOSPrepare[geom1]["GEOSGeometry"], _GEOSGeometry]
 ]
 
 TestCreate[
-  MatchQ[Normal[GEOSPreparedGeometry[geom1]], _GEOSGeometry]
+  MatchQ[Normal[GEOSPrepare[geom1]], _GEOSGeometry]
 ]
 
 TestCreate[
@@ -118,11 +118,11 @@ TestCreate[
 ]
 
 TestCreate[
-  GEOSDistance[GEOSPreparedGeometry[geom1], geomMoved] == RegionDistance[poly1, polyMoved]
+  GEOSDistance[GEOSPrepare[geom1], geomMoved] == RegionDistance[poly1, polyMoved]
 ]
 
 TestCreate[
-  GEOSDistance[geom1, GEOSPreparedGeometry[geomMoved]] == RegionDistance[poly1, polyMoved]
+  GEOSDistance[geom1, GEOSPrepare[geomMoved]] == RegionDistance[poly1, polyMoved]
 ]
 
 TestCreate[
@@ -138,19 +138,19 @@ TestCreate[
 ]
 
 TestCreate[
-  GEOSDistanceWithin[GEOSPreparedGeometry[geom1], geomMoved, 10] === True
+  GEOSDistanceWithin[GEOSPrepare[geom1], geomMoved, 10] === True
 ]
 
 TestCreate[
-  GEOSDistanceWithin[GEOSPreparedGeometry[geom1], geomMoved, 1] === False
+  GEOSDistanceWithin[GEOSPrepare[geom1], geomMoved, 1] === False
 ]
 
 TestCreate[
-  GEOSDistanceWithin[geom1, GEOSPreparedGeometry[geomMoved], 10] === True
+  GEOSDistanceWithin[geom1, GEOSPrepare[geomMoved], 10] === True
 ]
 
 TestCreate[
-  GEOSDistanceWithin[geom1, GEOSPreparedGeometry[geomMoved], 1] === False
+  GEOSDistanceWithin[geom1, GEOSPrepare[geomMoved], 1] === False
 ]
 
 TestCreate[
@@ -175,8 +175,8 @@ TestCreate[
   GEOSHausdorffDistance[geom1, geom1] == 0
 ]
 Function[f,{
-  TestCreate[!f[GEOSPreparedGeometry[geom1], geomMoved]],
-  TestCreate[f[geom1, GEOSPreparedGeometry[geom1]]]
+  TestCreate[!f[GEOSPrepare[geom1], geomMoved]],
+  TestCreate[f[geom1, GEOSPrepare[geom1]]]
 }]/@{
 	GEOSCovers,
 	GEOSContains,
@@ -186,10 +186,10 @@ Function[f,{
 TestCreate[!GEOSDisjoint[geom1, geom1]]
 TestCreate[GEOSDisjoint[geom1, geomMoved]]
 
-TestCreate[!GEOSDisjoint[GEOSPreparedGeometry[geom1], geom1]]
-TestCreate[!GEOSDisjoint[geom1, GEOSPreparedGeometry[geom1]]]
-TestCreate[GEOSDisjoint[GEOSPreparedGeometry[geom1], geomMoved]]
-TestCreate[GEOSDisjoint[geom1, GEOSPreparedGeometry[geomMoved]]]
+TestCreate[!GEOSDisjoint[GEOSPrepare[geom1], geom1]]
+TestCreate[!GEOSDisjoint[geom1, GEOSPrepare[geom1]]]
+TestCreate[GEOSDisjoint[GEOSPrepare[geom1], geomMoved]]
+TestCreate[GEOSDisjoint[geom1, GEOSPrepare[geomMoved]]]
 
 TestCreate[!GEOSOverlaps[geom1, geomMoved]]
 TestCreate[!GEOSTouches[geom1, geomMoved]]
