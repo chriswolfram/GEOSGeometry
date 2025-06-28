@@ -58,6 +58,14 @@ TestCreate[
 ]
 
 TestCreate[
+  MatchQ[geom1["Geometry"], _Polygon]
+]
+
+TestCreate[
+  regionGEOSSameQ[geom1, poly1]
+]
+
+TestCreate[
   geom2 = GEOSGeometry[poly2];
   MatchQ[geom2, _GEOSGeometry]
 ]
@@ -78,6 +86,22 @@ TestCreate[
 ]
 
 TestCreate[
+  MatchQ[GEOSPreparedGeometry[geom1], _GEOSPreparedGeometry]
+]
+
+TestCreate[
+  MatchQ[GEOSPreparedGeometry[geom1]["GEOSGeometry"], _GEOSGeometry]
+]
+
+TestCreate[
+  MatchQ[Normal[GEOSPreparedGeometry[geom1]], _GEOSGeometry]
+]
+
+TestCreate[
+  GEOSCentroid[geom1] == RegionCentroid[poly1]
+]
+
+TestCreate[
   GEOSArea[geom1] == Area[poly1]
 ]
 
@@ -90,6 +114,14 @@ TestCreate[
 ]
 
 TestCreate[
+  GEOSDistance[GEOSPreparedGeometry[geom1], geomMoved] == RegionDistance[poly1, polyMoved]
+]
+
+TestCreate[
+  GEOSDistance[geom1, GEOSPreparedGeometry[geomMoved]] == RegionDistance[poly1, polyMoved]
+]
+
+TestCreate[
   GEOSDistance[geom1, geom1] == 0
 ]
 
@@ -99,6 +131,22 @@ TestCreate[
 
 TestCreate[
   GEOSDistanceWithin[geom1, geomMoved, 1] === False
+]
+
+TestCreate[
+  GEOSDistanceWithin[GEOSPreparedGeometry[geom1], geomMoved, 10] === True
+]
+
+TestCreate[
+  GEOSDistanceWithin[GEOSPreparedGeometry[geom1], geomMoved, 1] === False
+]
+
+TestCreate[
+  GEOSDistanceWithin[geom1, GEOSPreparedGeometry[geomMoved], 10] === True
+]
+
+TestCreate[
+  GEOSDistanceWithin[geom1, GEOSPreparedGeometry[geomMoved], 1] === False
 ]
 
 TestCreate[
@@ -119,8 +167,25 @@ Function[f,{
 	GEOSEquals
 };
 
+TestCreate[
+  GEOSHausdorffDistance[geom1, geom1] == 0
+]
+Function[f,{
+  TestCreate[!f[GEOSPreparedGeometry[geom1], geomMoved]],
+  TestCreate[f[geom1, GEOSPreparedGeometry[geom1]]]
+}]/@{
+	GEOSCovers,
+	GEOSContains,
+	GEOSIntersects
+};
+
 TestCreate[!GEOSDisjoint[geom1, geom1]]
 TestCreate[GEOSDisjoint[geom1, geomMoved]]
+
+TestCreate[!GEOSDisjoint[GEOSPreparedGeometry[geom1], geom1]]
+TestCreate[!GEOSDisjoint[geom1, GEOSPreparedGeometry[geom1]]]
+TestCreate[GEOSDisjoint[GEOSPreparedGeometry[geom1], geomMoved]]
+TestCreate[GEOSDisjoint[geom1, GEOSPreparedGeometry[geomMoved]]]
 
 TestCreate[!GEOSOverlaps[geom1, geomMoved]]
 TestCreate[!GEOSTouches[geom1, geomMoved]]
