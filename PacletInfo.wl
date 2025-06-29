@@ -7,7 +7,7 @@ PacletObject[
     "Creator" -> "Christopher Wolfram",
     "License" -> "MIT",
     "PublisherID" -> "ChristopherWolfram",
-    "Version" -> "1.1.0",
+    "Version" -> "1.1.1",
     "WolframVersion" -> "14.2+",
     "PrimaryContext" -> "ChristopherWolfram`GEOSGeometry`",
     "DocumentationURL" -> "https://resources.wolframcloud.com/PacletRepository/resources",

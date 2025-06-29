@@ -1,6 +1,5 @@
 BeginPackage["ChristopherWolfram`GEOSGeometry`"];
 
-Needs["ChristopherWolfram`GEOSGeometry`Utilities`"]
 Needs["GEOSLink`" -> "GL`"]
 
 ToGEOSGeometry
