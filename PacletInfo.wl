@@ -31,18 +31,20 @@ PacletObject[
           "ChristopherWolfram`GEOSGeometry`GEOSDistanceWithin",
           "ChristopherWolfram`GEOSGeometry`GEOSEquals",
           "ChristopherWolfram`GEOSGeometry`GEOSGeometry",
-          "ChristopherWolfram`GEOSGeometry`GEOSPreparedGeometry",
           "ChristopherWolfram`GEOSGeometry`GEOSHausdorffDistance",
           "ChristopherWolfram`GEOSGeometry`GEOSIntersection",
           "ChristopherWolfram`GEOSGeometry`GEOSIntersects",
           "ChristopherWolfram`GEOSGeometry`GEOSLength",
           "ChristopherWolfram`GEOSGeometry`GEOSMerge",
           "ChristopherWolfram`GEOSGeometry`GEOSOverlaps",
+          "ChristopherWolfram`GEOSGeometry`GEOSPrepare",
+          "ChristopherWolfram`GEOSGeometry`GEOSPreparedGeometry",
           "ChristopherWolfram`GEOSGeometry`GEOSSymmetricDifference",
           "ChristopherWolfram`GEOSGeometry`GEOSTouches",
           "ChristopherWolfram`GEOSGeometry`GEOSUnion",
           "ChristopherWolfram`GEOSGeometry`GEOSVoronoiMesh",
-          "ChristopherWolfram`GEOSGeometry`GEOSWithin"
+          "ChristopherWolfram`GEOSGeometry`GEOSWithin",
+          "ChristopherWolfram`GEOSGeometry`ToGEOSGeometry"
         }
       },
       {
