@@ -3,7 +3,7 @@ BeginPackage["ChristopherWolfram`GEOSGeometry`"];
 Needs["ChristopherWolfram`GEOSGeometry`Utilities`"]
 Needs["GEOSLink`" -> "GL`"]
 
-ToGEOS
+ToGEOSGeometry
 GEOSGeometry
 
 GEOSArea
@@ -45,7 +45,7 @@ Begin["`Private`"];
 
 (********************************* GEOSGeometry *********************************)
 
-ToGEOS[g_] := GEOSGeometry[GL`ToGEOS[g]]
+ToGEOSGeometry[g_] := GEOSGeometry[GL`ToGEOS[g]]
 
 GEOSGeometry[$Failed] := $Failed
 
@@ -57,19 +57,20 @@ GEOSGeometry /: Normal[geom_GEOSGeometry] := geom["Geometry"]
 
 
 MakeBoxes[geom_GEOSGeometry, form:StandardForm] :=
-	ToBoxes[Panel[
-		Graphics[{
+	ToBoxes[Interpretation[
+		Panel@Graphics[{
 			RGBColor[1/3, 1/3, 3/5],
 			EdgeForm[Black],
 			geom["Geometry"]
-		}, ImageSize->Small]
+		}, ImageSize->Small],
+		$Failed
 	], form]
 
 
 (********************************* GEOSPreparedGeometry *********************************)
 
 GEOSPrepare[GEOSGeometry[rawGeom_]] := GEOSPreparedGeometry[GL`GEOSPrepare[rawGeom], rawGeom]
-GEOSPrepare[g_] := GEOSPrepare[ToGEOS[g]]
+GEOSPrepare[g_] := GEOSPrepare[ToGEOSGeometry[g]]
 GEOSPrepare[$Failed] := $Failed
 
 GEOSPreparedGeometry[$Failed, _] := $Failed
@@ -82,12 +83,13 @@ GEOSPreparedGeometry /: Normal[prep_GEOSPreparedGeometry] := prep["GEOSGeometry"
 
 
 MakeBoxes[prep_GEOSPreparedGeometry, form:StandardForm] :=
-	ToBoxes[Panel[
-		Graphics[{
+	ToBoxes[Interpretation[
+		Panel@Graphics[{
 			RGBColor[1, 1/3, 3/5],
 			EdgeForm[Black],
 			prep["Geometry"]
-		}, ImageSize->Small]
+		}, ImageSize->Small],
+		$Failed
 	], form]
 
 

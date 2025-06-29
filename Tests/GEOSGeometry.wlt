@@ -53,7 +53,7 @@ regionGEOSSameQ[geos_, reg_, epsilon_:0.0001] :=
   Area[RegionSymmetricDifference[reg, geos["Geometry"]]] < epsilon
 
 TestCreate[
-  geom1 = ToGEOS[poly1];
+  geom1 = ToGEOSGeometry[poly1];
   MatchQ[geom1, _GEOSGeometry]
 ]
 
@@ -66,22 +66,22 @@ TestCreate[
 ]
 
 TestCreate[
-  geom2 = ToGEOS[poly2];
+  geom2 = ToGEOSGeometry[poly2];
   MatchQ[geom2, _GEOSGeometry]
 ]
 
 TestCreate[
-  geom3 = ToGEOS[poly3];
+  geom3 = ToGEOSGeometry[poly3];
   MatchQ[geom3, _GEOSGeometry]
 ]
 
 TestCreate[
-  geomMoved = ToGEOS[polyMoved];
+  geomMoved = ToGEOSGeometry[polyMoved];
   MatchQ[geomMoved, _GEOSGeometry]
 ]
 
 TestCreate[
-  pointGeom1 = ToGEOS[Point[points]];
+  pointGeom1 = ToGEOSGeometry[Point[points]];
   MatchQ[pointGeom1, _GEOSGeometry]
 ]
 

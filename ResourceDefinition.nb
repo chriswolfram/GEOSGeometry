@@ -1638,7 +1638,7 @@ Cell[BoxData[
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input", "Excluded",
  TaggingRules->{},
  InitializationCell->True,
- CellLabel->"In[10]:=",
+ CellLabel->"In[3]:=",
  CellID->996717066,ExpressionUUID->"4768e6d8-d978-4168-b1ea-5c5724894185"],
 
 Cell[BoxData[
@@ -1647,7 +1647,7 @@ Cell[BoxData[
   ";"}]], "Input", "Excluded",
  TaggingRules->{},
  InitializationCell->True,
- CellLabel->"In[11]:=",
+ CellLabel->"In[4]:=",
  CellID->172764492,ExpressionUUID->"eab4e41c-6550-488f-bac5-d41fb91df8c8"]
 }, Open  ]],
 
@@ -1673,7 +1673,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"geos", "=", 
-  RowBox[{"GEOSGeometry", "[", 
+  RowBox[{"ToGEOSGeometry", "[", 
    RowBox[{"RandomPolygon", "[", "]"}], "]"}]}]], "Input",
  TaggingRules->{},
  CellLabel->"In[14]:=",
@@ -3977,7 +3977,10 @@ that are otherwise beyond the scope of the paclet documentation.",
  CellTags->{"Author Notes", "TemplateCellGroup"},
  CellID->951557313,ExpressionUUID->"07d25d5c-f029-464e-b04f-19e156fb9029"],
 
-Cell["Additional information about limitations, issues, etc.", "Text",
+Cell["\<\
+GEOSGeometry objects cannot currently be copied because the underlying \
+compiled GEOSGeometry data structure cannot currently be serialized.\
+\>", "Text",
  TaggingRules->{},
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
        SelectedNotebook[], After, Cell]; NotebookFind[
@@ -3991,7 +3994,7 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 }, Open  ]]
 },
 WindowSize->{1091, Automatic},
-WindowMargins->{{Automatic, 92}, {Automatic, 39}},
+WindowMargins->{{250, Automatic}, {Automatic, 63}},
 WindowTitle->"GEOSGeometry | Definition Notebook",
 DockedCells->{
   Cell[
